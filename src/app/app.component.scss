@@ -1,0 +1,29 @@
+$menubarY: 41.23px;
+
+#body {
+    @extend .nopadding;
+
+    height: calc(100vh - #{$menubarY});
+    width: 100vw;
+}
+#sidemenu {
+    @extend .scrollable;
+    @extend .nopadding;
+
+    height: 100vh;
+}
+#menubar {
+    @extend .nopadding;
+}
+#content {
+    @extend .scrollable;
+    @extend .nopadding;
+}
+.nopadding {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.scrollable {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}

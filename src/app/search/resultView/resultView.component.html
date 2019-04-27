@@ -1,0 +1,14 @@
+  <p-table [value]="this.models" [scrollable]="true" [customSort]="true" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let item of this.headers">{{item | transform}}</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-model>
+        <tr>
+            <td><a [routerLink]="[ '/Companies', model.name ]">{{model.name}}</a></td>
+            <td>{{model.isActive.toString() | titlecase}}</td>
+            <td>{{model.activeSince | date: 'medium'}}</td>
+        </tr>
+    </ng-template>
+</p-table>

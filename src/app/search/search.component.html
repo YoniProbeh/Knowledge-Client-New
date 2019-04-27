@@ -1,0 +1,15 @@
+<p-toolbar>
+  <div class="ui-toolbar-group-left">
+    <p-autoComplete [(ngModel)]="this.inputValue" [delay]="0" [autoHighlight]="true" [inputStyle]="{'width':'250%'}" [suggestions]="this.suggestions" [dropdown]="false" 
+    placeholder="Search {{this.controller | titlecase}}" (completeMethod)="this.filterSuggestions($event)" (onKeyUp)="this.resetSearch($event)" (onSelect)="this.filterResults($event)">
+    </p-autoComplete>
+  </div>
+
+  <div class="ui-toolbar-group-right">
+      <p-dropdown [options]="this.menuOptions['Sort']" [(ngModel)]="this.sortOption"></p-dropdown>
+      &nbsp;
+      <p-dropdown [options]="this.menuOptions['Display']" [(ngModel)]="this.displayOption"></p-dropdown>
+  </div>
+</p-toolbar>
+
+<ghost-resultView [models]="this.displayList" [display]="this.displayOption"></ghost-resultView>
